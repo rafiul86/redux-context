@@ -83,6 +83,7 @@ const Form = () => {
           console.log(googleUser)
         }
     }
+ 
     return (
              <div>
                  <h3>Already have an account ? <Link to="/sign">Sign in here</Link> </h3> 
@@ -111,6 +112,7 @@ const Form = () => {
            <Facebook></Facebook>
            <button onClick={handleLink}>Send Link</button>
            <button onClick={handleshow}>Show user info</button>
+           
         </div>
     );
 };

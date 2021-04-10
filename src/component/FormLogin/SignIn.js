@@ -29,7 +29,6 @@ const SignIn = () => {
             validAuth = checkPass && checkLength 
         }
         if(validAuth){
-            console.log(validAuth)
             const newUserInfo = {...userInfo}
             newUserInfo[e.target.name] = e.target.value ;
             setUserInfo(newUserInfo)
@@ -54,6 +53,16 @@ const SignIn = () => {
         }
         e.preventDefault()
     }
+    const handleReset = () =>{
+        var auth = firebase.auth();
+var emailAddress = "rafiulhasan86@gmail.com";
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  console.log('email sent')
+}).catch(function(error) {
+    console.log(error)
+});
+    }
     return (
              <div>
                  <h3>Don't have an account ? <Link to="/signup">Signup here</Link> </h3> 
@@ -69,7 +78,7 @@ const SignIn = () => {
                     userInfo.success && <h3 style={{color : 'green'}}>Logged in successfully !!</h3>
                 }
             </form>
-            <h4>Forgot password ?</h4>
+            <button onClick={handleReset}>Forgot Password/Reset</button>
         </div>
     );
 };
