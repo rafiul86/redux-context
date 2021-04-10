@@ -33,3 +33,9 @@ body{
     border-radius: 5px;
     background-color: green
 }
+.submit-b{
+    height : 30px;
+    width : 150px; 
+    border-radius: 5px;
+    background-color: grey
+}

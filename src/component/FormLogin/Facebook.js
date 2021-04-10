@@ -18,10 +18,10 @@ const Facebook = () => {
         email : '',
         photo : ''
     })
-    const provider = new firebase.auth.FacebookAuthProvider();
-    const handleGoogleIn = () =>{
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
+    const handleFacebookIn = () =>{
         firebase.auth()
-  .signInWithPopup(provider)
+  .signInWithPopup(fbProvider)
   .then((result) => {
     const {displayName,email,photoURL} = result.user;
     const newUser = {...user}
@@ -35,7 +35,7 @@ const Facebook = () => {
     
   });
     }
-    const handleGoogleOut = () => {
+    const handleFacebookOut = () => {
         firebase.auth().signOut().then(() => {
             const newUser = {...user}
             newUser.isSignedIn = false
@@ -50,7 +50,7 @@ const Facebook = () => {
     }
     return (
         <div>{
-            user.isSignedIn ? <button className="btn-f"  onClick={handleGoogleOut}>Logout</button> : <button  className="btn-f" onClick={handleGoogleIn}>Login with Facebook</button>
+            user.isSignedIn ? <button className="btn-f"  onClick={handleFacebookOut}>Logout</button> : <button  className="btn-f" onClick={handleFacebookIn}>Login with Facebook</button>
             }
            {
                user.isSignedIn &&  <div><h3>{user.name}</h3>

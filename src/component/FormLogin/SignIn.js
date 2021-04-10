@@ -69,12 +69,13 @@ const SignIn = () => {
                 <br/>
                 <input className="input" type="password" name="password" onBlur={handleBlurForm} placeholder="password" required/>
                 <br/>
-                <input type="submit"/>
+                <input className="submit-b" type="submit"/>
                 <h3 style={{color : 'red'}}>{userInfo.error}</h3>
                 {
                     userInfo.success && <h3 style={{color : 'green'}}>Logged in successfully !!</h3>
                 }
             </form>
+            <h4>Forgot password ?</h4>
         </div>
     );
 };
