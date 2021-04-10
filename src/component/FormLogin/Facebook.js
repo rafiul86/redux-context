@@ -30,7 +30,6 @@ const Facebook = () => {
     newUser.email = email;
     newUser.photo = photoURL
     setUser(newUser)
-    console.log(newUser)
   }).catch((error) => {
     
   });
@@ -43,7 +42,6 @@ const Facebook = () => {
             newUser.email = ''
             newUser.photo = ''
             setUser(newUser)
-            console.log(newUser)
           }).catch((error) => {
             // An error happened.
           });

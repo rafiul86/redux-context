@@ -30,7 +30,6 @@ const Google = () => {
     newUser.email = email;
     newUser.photo = photoURL
     setUser(newUser)
-    console.log(newUser)
   }).catch((error) => {
     
   });
@@ -48,6 +47,8 @@ const Google = () => {
             // An error happened.
           });
     }
+        
+
     return (
         <div>{
             user.isSignedIn ? <button className="btn" onClick={handleGoogleOut}>Logout</button> : <button className="btn" onClick={handleGoogleIn}>Login with Google</button>

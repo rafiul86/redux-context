@@ -11,6 +11,10 @@ import Facebook from './Facebook';
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
  }
+
+
+
+ 
 const Form = () => {
     const [user , setUser] = useState({
         name : '',
@@ -56,6 +60,35 @@ const Form = () => {
         }
         e.preventDefault()
     }
+
+    const handleLink = () =>{
+        firebase.auth().sendSignInLinkToEmail(user.email, {name : user.name})
+  .then(() => {
+    // The link was successfully sent. Inform the user.
+    // Save the email locally so you don't need to ask the user for it again
+    // if they open the link on the same device.
+    window.localStorage.setItem('emailForSignIn', user.email);
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage)
+  });
+    }
+    const handleshow = ()=>{
+        var googleUser = firebase.auth().currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+        
+        if (googleUser != null) {
+          name = googleUser.displayName;
+          email = googleUser.email;
+          photoUrl = googleUser.photoURL;
+          emailVerified = googleUser.emailVerified;
+          uid = googleUser.uid;  
+          console.log(googleUser)
+        }
+    }
     return (
              <div>
                  <h3>Already have an account ? <Link to="/sign">Sign in here</Link> </h3> 
@@ -82,6 +115,8 @@ const Form = () => {
             </form>
            <Google></Google>
            <Facebook></Facebook>
+           <button onClick={handleLink}>Send Link</button>
+           <button onClick={handleshow}>Show user info</button>
         </div>
     );
 };
