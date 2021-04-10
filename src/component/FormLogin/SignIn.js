@@ -53,16 +53,7 @@ const SignIn = () => {
         }
         e.preventDefault()
     }
-    const handleReset = () =>{
-        var auth = firebase.auth();
-var emailAddress = "rafiulhasan86@gmail.com";
-
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  console.log('email sent')
-}).catch(function(error) {
-    console.log(error)
-});
-    }
+   
     return (
              <div>
                  <h3>Don't have an account ? <Link to="/signup">Signup here</Link> </h3> 
@@ -78,7 +69,7 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
                     userInfo.success && <h3 style={{color : 'green'}}>Logged in successfully !!</h3>
                 }
             </form>
-            <button onClick={handleReset}>Forgot Password/Reset</button>
+            <Link to="/reset">Forgot/Reset password ?</Link>
         </div>
     );
 };

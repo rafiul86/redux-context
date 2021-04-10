@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import SignIn from './component/FormLogin/SignIn';
 import Home from './component/Home';
+import Reset from './component/FormLogin/Reset';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/sign">
             <SignIn />
+          </Route>
+          <Route path="/reset">
+          <Reset/>
           </Route>
         </Switch>
     </Router>
