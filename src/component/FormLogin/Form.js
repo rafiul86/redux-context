@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../firebase.config';
 import { Link  } from "react-router-dom";
+import './Form.css'
 
 
 if (!firebase.apps.length) {
@@ -57,11 +58,11 @@ const Form = () => {
              <div>
                  <h3>Already have an account ? <Link to="/sign">Sign in here</Link> </h3> 
                  <form onSubmit={handleSubmit} >
-                 <input name="name" onBlur={handleBlur} placeholder="name" type="text" required/>
+                 <input className="input" name="name" onBlur={handleBlur} placeholder="name" type="text" required/>
                 <br/>
-                <input type="text" name="email" onBlur={handleBlur} placeholder="Email" required/>
+                <input className="input" type="text" name="email" onBlur={handleBlur} placeholder="Email" required/>
                 <br/>
-                <input type="password" name="password" onBlur={handleBlur} placeholder="password" required/>
+                <input className="input" type="password" name="password" onBlur={handleBlur} placeholder="password" required/>
                 <br/>
                 <input type="submit"/>
                 <h3 style={{color : 'red'}}>{user.error}</h3>
