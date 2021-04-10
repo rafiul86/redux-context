@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from '../firebase.config';
 import { Link  } from "react-router-dom";
 import './Form.css'
+import Google from './Google';
+import firebaseConfig from '../firebase.config';
+import Facebook from './Facebook';
 
 
 if (!firebase.apps.length) {
@@ -60,16 +62,26 @@ const Form = () => {
                  <form onSubmit={handleSubmit} >
                  <input className="input" name="name" onBlur={handleBlur} placeholder="name" type="text" required/>
                 <br/>
+                <input className="input" name="address" onBlur={handleBlur} placeholder="address line 1" type="text" required/>
+                <br/>
+                <input className="input" name="address" onBlur={handleBlur} placeholder="address line 2 (optional)" type="text" />
+                <br/>
+                <input className="input" name="zip" onBlur={handleBlur} placeholder="zip code" type="number" required/>
+                <br/>
+                <input className="input" name="phone" onBlur={handleBlur} placeholder="phone" type="text" required/>
+                <br/>
                 <input className="input" type="text" name="email" onBlur={handleBlur} placeholder="Email" required/>
                 <br/>
                 <input className="input" type="password" name="password" onBlur={handleBlur} placeholder="password" required/>
                 <br/>
-                <input type="submit"/>
+                <input className="submit"  type="submit"/>
                 <h3 style={{color : 'red'}}>{user.error}</h3>
                 {
                     user.success && <h3 style={{color : 'green'}}>New user created successfully !!</h3>
                 }
             </form>
+           <Google></Google>
+           <Facebook></Facebook>
         </div>
     );
 };

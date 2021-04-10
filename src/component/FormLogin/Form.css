@@ -2,8 +2,34 @@ body{
     background-color:lawngreen;
 }
 .input{
-    height : 30px;
-    width : 400px;
+    height : 50px;
+    width : 500px;
     background-color: aqua;
+    border-radius: 10px;
+}
+
+.btn{
+    height : 40px;
+    width : 400px;
+    background-color: red;
+    font-weight: 600;
+    font-size: medium;
+    color: white;
+    border-radius: 5px; 
+}
+
+.btn-f{
+    height : 40px;
+    width : 400px;
+    background-color:blue;
+    font-weight: 600;
+    font-size: medium;
+    color: white;
+    border-radius: 5px;  
+}
+.submit{
+    height : 30px;
+    width : 150px; 
     border-radius: 5px;
+    background-color: green
 }
