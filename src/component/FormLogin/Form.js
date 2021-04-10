@@ -32,7 +32,7 @@ const Form = () => {
         }
         if(e.target.name === 'password'){
             const checkPass = /\d/.test(e.target.value)
-            const checkLength = e.target.value.length > 3 ;
+            const checkLength = e.target.value.length > 7 ;
             validAuth = checkPass && checkLength 
         }
         if(validAuth){
