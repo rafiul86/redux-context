@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../firebase.config';
-
+import { Link  } from "react-router-dom";
 
 
 if (!firebase.apps.length) {
@@ -29,11 +29,9 @@ const Form = () => {
             validAuth = checkPass && checkLength 
         }
         if(validAuth){
-            console.log(validAuth)
             const newUser = {...user}
             newUser[e.target.name] = e.target.value ;
             setUser(newUser)
-            console.log(newUser)
         }
     }
 
@@ -51,15 +49,15 @@ const Form = () => {
     newUser.error = error.message;
     newUser.success = false
     setUser(newUser)
-    console.log(error.message)
   });
         }
         e.preventDefault()
     }
     return (
              <div>
+                 <h3>Already have an account ? <Link to="/sign">Sign in here</Link> </h3> 
                  <form onSubmit={handleSubmit} >
-                 <input name="name" onBlur={handleBlur} type="text"/>
+                 <input name="name" onBlur={handleBlur} placeholder="name" type="text" required/>
                 <br/>
                 <input type="text" name="email" onBlur={handleBlur} placeholder="Email" required/>
                 <br/>
